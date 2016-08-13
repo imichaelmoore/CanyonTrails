@@ -1,0 +1,19 @@
+<Context debug="1">
+
+    <Resource name="jdbc/derby" auth="Container"
+              driverClassName="org.apache.derby.jdbc.EmbeddedDriver"
+              username="canyon" password="canyon"
+              type="javax.sql.DataSource"
+              url="jdbc:derby:src/main/resources/canyontrails.db;create=true"/>
+
+    <!--url="jdbc:derby:/tmp/sampledb;create=true"-->
+
+    <!--<Resource name="jdbc/canyontrails" auth="Container"-->
+              <!--maxActive="100" maxIdle="30" maxWait="10000"-->
+              <!--username="root" password="toor"-->
+              <!--driverClassName="com.mysql.jdbc.Driver"-->
+              <!--url="jdbc:mysql://localhost:3306/canyontrails?autoReconnect=true"-->
+              <!--logAbandoned="true" removeAbandoned="true"-->
+              <!--removeAbandonedTimeout="60" type="javax.sql.DataSource" />-->
+
+</Context>
