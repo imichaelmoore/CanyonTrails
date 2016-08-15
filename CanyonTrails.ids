@@ -24,11 +24,31 @@
     <schema name="SYSIBM" catalog=""/>
     <schema name="SYSPROC" catalog=""/>
     <schema name="SYSSTAT" catalog=""/>
+    <table name="IMAGES" schema="CANYON" catalog="" type="TABLE">
+      <column name="ID" sqlType="CHAR" precision="36" scale="0" nullable="false" jdbcType="1"/>
+      <column name="OWNER_UID" sqlType="CHAR" precision="36" scale="0" nullable="true" jdbcType="1"/>
+      <column name="UPLOADED" sqlType="TIMESTAMP" precision="29" scale="9" nullable="true" jdbcType="93"/>
+      <column name="DATA" sqlType="BLOB" precision="2147483647" scale="0" nullable="true" jdbcType="2004"/>
+      <primary-key name="SQL160814221734930" columns="ID"/>
+      <index name="IMAGES_OWNER_UID" unique="false" columns="OWNER_UID"/>
+    </table>
+    <table name="TRAILS" schema="CANYON" catalog="" type="TABLE">
+      <column name="ID" sqlType="CHAR" precision="36" scale="0" nullable="false" jdbcType="1"/>
+      <column name="OWNER_UID" sqlType="CHAR" precision="36" scale="0" nullable="true" jdbcType="1"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="LONG VARCHAR" precision="32700" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="GPX" sqlType="XML" precision="2147483647" scale="0" nullable="true" jdbcType="2009"/>
+      <column name="COVER_IMAGE" sqlType="CHAR" precision="36" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="SQL160814221729530" columns="ID"/>
+      <index name="OWNER_UID" unique="false" columns="OWNER_UID"/>
+    </table>
     <table name="USERS" schema="CANYON" catalog="" type="TABLE">
       <column name="UID" sqlType="CHAR" precision="36" scale="0" nullable="true" jdbcType="1"/>
       <column name="PASSWORD_HASH" sqlType="CHAR" precision="60" scale="0" nullable="true" jdbcType="1"/>
       <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="EMAIL" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <index name="USERS_EMAIL" unique="true" columns="EMAIL"/>
+      <index name="EMAIL" unique="false" columns="EMAIL"/>
     </table>
     <table name="SYSALIASES" schema="SYS" catalog="" type="TABLE">
       <column name="ALIASID" sqlType="CHAR" precision="36" scale="0" nullable="false" jdbcType="1"/>

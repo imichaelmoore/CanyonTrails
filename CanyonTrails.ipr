@@ -58,7 +58,7 @@
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
-  <component name="DataSourceManagerImpl" format="xml" hash="3758438698">
+  <component name="DataSourceManagerImpl" format="xml" hash="2845201358">
     <data-source source="LOCAL" name="Derby (Embedded) - canyontrails.db" uuid="89c36f9e-2426-4216-a422-390d75d1e11b">
       <driver-ref>derby.embedded</driver-ref>
       <synchronize>true</synchronize>
