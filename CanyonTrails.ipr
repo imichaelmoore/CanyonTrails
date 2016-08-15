@@ -16,6 +16,9 @@
           </element>
           <element id="directory" name="lib">
             <element id="library" level="project" name="Maven: org.apache.derby:derby:10.12.1.1" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.6.1" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
+            <element id="library" level="project" name="Maven: org.mindrot:jbcrypt:0.3m" />
           </element>
         </element>
         <element id="directory" name="META-INF">
@@ -55,12 +58,19 @@
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
-  <component name="DataSourceManagerImpl" format="xml" hash="2860874549">
+  <component name="DataSourceManagerImpl" format="xml" hash="3758438698">
     <data-source source="LOCAL" name="Derby (Embedded) - canyontrails.db" uuid="89c36f9e-2426-4216-a422-390d75d1e11b">
       <driver-ref>derby.embedded</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
       <jdbc-url>jdbc:derby:$PROJECT_DIR$/src/main/resources/canyontrails.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Derby (Remote) - jdbc:derby://127.0.0.1/canyontrails;create=true" uuid="fb1ed073-e953-4701-bf4b-266efb02c3d4">
+      <driver-ref>derby.remote</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>org.apache.derby.jdbc.ClientDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby://127.0.0.1/canyontrails;create=true</jdbc-url>
     </data-source>
   </component>
   <component name="Encoding">
@@ -316,11 +326,21 @@
       <method />
     </configuration>
   </component>
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/schema.sql" dialect="Derby" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
   <component name="dataSourceStorageLocal">
     <data-source name="Derby (Embedded) - canyontrails.db" uuid="89c36f9e-2426-4216-a422-390d75d1e11b">
+      <secret-storage>master_key</secret-storage>
+      <user-name>canyon</user-name>
+    </data-source>
+    <data-source name="Derby (Remote) - jdbc:derby://127.0.0.1/canyontrails;create=true" uuid="fb1ed073-e953-4701-bf4b-266efb02c3d4">
       <secret-storage>master_key</secret-storage>
       <user-name>canyon</user-name>
     </data-source>
@@ -357,6 +377,39 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.mindrot:jbcrypt:0.3m">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.slf4j:slf4j-api:1.6.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.slf4j:slf4j-simple:1.6.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.6.1/slf4j-simple-1.6.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.6.1/slf4j-simple-1.6.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.6.1/slf4j-simple-1.6.1-sources.jar!/" />
       </SOURCES>
     </library>
   </component>

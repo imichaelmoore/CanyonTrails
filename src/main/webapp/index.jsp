@@ -1,3 +1,9 @@
+<jsp:useBean id="sessionBean"
+             class="edu.jhu.ep.su16.final_project.mmoore91.beans.SessionBean"
+             scope="session" >
+</jsp:useBean>
+
+
 <html lang="en">
 <jsp:include page="header.jsp" />
 <body>
@@ -29,12 +35,12 @@
 
 </script>
 
-<div class="container">
+<div clasts="container">
 
   <!-- Main component for a primary marketing message or call to action -->
   <div class="jumbotron">
 
-    <div class="photos" autofocus>
+    <div class="photos">
       <img class="cover" data-name="Attic" src="components/coverflow/demo/attic.jpg"/>
       <img class="cover" data-name="Aurora Borealis" src="components/coverflow/demo/aurora.jpg"/>
       <img class="cover" data-name="Barbecued steak" src="components/coverflow/demo/barbecue.jpg"/>

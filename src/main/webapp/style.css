@@ -121,3 +121,24 @@ font-weight: bold;
 .clearfix {
 clear: both;
 }
+body {
+padding-top: 65px;
+}
+
+.errorBox {
+    color: red;
+    font-weight: 900;
+    border: solid 1px red;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    padding:5px;
+}.successBox {
+    color: green;
+    font-weight: 900;
+    border: solid 1px green;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    padding:5px;
+}

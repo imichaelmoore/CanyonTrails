@@ -27,6 +27,17 @@
             <artifactId>derby</artifactId>
             <version>10.12.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency><!-- Bcrypt for secure password storage -->
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.3m</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>CanyonTrails</finalName>
@@ -36,11 +47,14 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
+
                     <contextFile>./src/main/webapp/WEB-INF/context.xml</contextFile>
                     <contextReloadable>true</contextReloadable>
+
                     <httpsPort>8443</httpsPort>
                     <keystoreFile>${basedir}/certificates/keystore.jks</keystoreFile>
                     <keystorePass>changeit</keystorePass>
+
                 </configuration>
                 <dependencies>
                     <dependency>

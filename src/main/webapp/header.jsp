@@ -21,7 +21,7 @@
 
 
     <style type="text/css">
-        <jsp:include page="style-css.jsp" />
+        <jsp:include page="style.css" />
     </style>
 
     <script type="text/javascript">
