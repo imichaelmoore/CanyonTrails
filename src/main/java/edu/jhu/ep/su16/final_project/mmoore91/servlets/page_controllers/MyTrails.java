@@ -1,7 +1,6 @@
 package edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers;
 
 import edu.jhu.ep.su16.final_project.mmoore91.beans.SessionBean;
-import edu.jhu.ep.su16.final_project.mmoore91.pojo.User;
 import edu.jhu.ep.su16.final_project.mmoore91.utilities.SQLAdapter;
 
 import javax.servlet.RequestDispatcher;
@@ -41,7 +40,7 @@ public class MyTrails extends HttpServlet {
         }
 
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/mytrails.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/trails.jsp");
         dispatcher.forward(req, resp);
 
     }

@@ -1,8 +1,8 @@
 <jsp:useBean id="sessionBean"
              class="edu.jhu.ep.su16.final_project.mmoore91.beans.SessionBean"
-             scope="session" >
+             scope="session">
 </jsp:useBean>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" style="opacity:.8">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -18,8 +18,8 @@
             <ul class="nav navbar-nav">
                 <% if (sessionBean.isAuthenticated() == true) { %>
 
-            <li><a href="<%=request.getContextPath()%>/mytrails">My Trails</a></li>
-            <li><a href="<%=request.getContextPath()%>/trails/add">Add Trail</a></li>
+                <li><a href="<%=request.getContextPath()%>/trails">Trails</a></li>
+                <li><a href="<%=request.getContextPath()%>/trails/add">Add Trail</a></li>
 
                 <% } %>
 
@@ -32,7 +32,8 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="<%=request.getContextPath()%>/login" accept-charset="UTF-8"
+                                    <form class="form" role="form" method="post"
+                                          action="<%=request.getContextPath()%>/login" accept-charset="UTF-8"
                                           id="login-nav">
                                         <div class="form-group">
                                             <label class="sr-only" for="exampleInputEmail2">Email address</label>

@@ -9,16 +9,12 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.nio.file.Paths;
-import java.sql.Array;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -70,10 +66,12 @@ public class AddTrailSubmit extends HttpServlet {
                 if (item.isFormField()) {
                     String fieldName = item.getFieldName();
                     String fieldValue = item.getString();
-                    if(fieldName.equals("name")) { trailName = fieldValue; }
-                    else if(fieldName.equals("description")) { description = fieldValue; }
-                }
-                else {
+                    if (fieldName.equals("name")) {
+                        trailName = fieldValue;
+                    } else if (fieldName.equals("description")) {
+                        description = fieldValue;
+                    }
+                } else {
                     String fieldName = item.getFieldName();
                     String fileName = FilenameUtils.getName(item.getName());
                     InputStream inputStream = item.getInputStream();
@@ -93,11 +91,12 @@ public class AddTrailSubmit extends HttpServlet {
         db.sqlQuery("INSERT INTO trails (id, owner_uid, name, description, gpx) VALUES (?,?,?,?,?)", params);
 
         String updateText = "Trail Added";
+        db = new SQLAdapter();
         db.sqlQuery("INSERT INTO timeline (owner_uid, update_text, trail_id) VALUES (?,?,?)",
                 Arrays.asList(s.getAuthenticatedUserUID(), updateText, trailID));
 
 
-        resp.sendRedirect(req.getContextPath() + "/mytrails");
+        resp.sendRedirect(req.getContextPath() + "/trails");
 
     }
 }

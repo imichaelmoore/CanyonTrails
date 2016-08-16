@@ -1,0 +1,20 @@
+{
+  "name": "gpxviewer",
+  "version": "1.4.0",
+  "homepage": "http://notions.okuda.ca/geotagging/projects-im-working-on/gpx-viewer/",
+  "authors": [
+    "Kaz Okuda <notions@okuda.ca>",
+    "Aleksey Rembish <alex@rembish.org>"
+  ],
+  "description": "Javascript object to load GPX-format GPS data into Google Maps.",
+  "main": "loadgpx.js",
+  "keywords": [
+    "gpx",
+    "googlemaps",
+    "maps"
+  ],
+  "license": "CC-GNU GPL",
+  "ignore": [
+    "example"
+  ]
+}

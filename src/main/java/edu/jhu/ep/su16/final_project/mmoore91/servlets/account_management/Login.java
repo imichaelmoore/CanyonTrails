@@ -31,6 +31,7 @@ public class Login extends HttpServlet {
         db = new SQLAdapter();
 
     } // init()
+
     /*
           * Method to handle a Http Get request.
           * The Connection object created in init() is used to access the
@@ -51,9 +52,9 @@ public class Login extends HttpServlet {
 
         User u = new User(req.getParameter("email"), req.getParameter("password"));
 
-        String sendToURL = req.getContextPath();
+        String sendToURL = req.getContextPath() + "/trails";
 
-        if(u.isValidUser()) {
+        if (u.isValidUser()) {
             s.setAuthenticated(true);
             s.setAuthenticatedUserName(u.getName());
             s.setAuthenticatedUserEmailAddress(u.getEmailAddress());

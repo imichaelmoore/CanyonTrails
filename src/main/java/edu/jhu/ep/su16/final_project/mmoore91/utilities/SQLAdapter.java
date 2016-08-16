@@ -7,6 +7,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.sql.DataSource;
+import java.io.ByteArrayInputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,9 +19,9 @@ import java.util.List;
  */
 public class SQLAdapter {
 
-    private Connection conn;
+    public Connection conn;
     private InitialContext cxt = null;
-    private  DataSource ds = null;
+    private DataSource ds = null;
 
     Logger logger = LoggerFactory.getLogger(SQLAdapter.class);
 
@@ -28,17 +29,15 @@ public class SQLAdapter {
 
         try {
             cxt = new InitialContext();
-            ds = (DataSource)cxt.lookup("java:comp/env/jdbc/derby");
-        }
-        catch (NamingException ex) {
+            ds = (DataSource) cxt.lookup("java:comp/env/jdbc/derby");
+        } catch (NamingException ex) {
             throw new ServletException("naming context error", ex);
         }
 
         try {
             conn = ds.getConnection();
             conn.setAutoCommit(true);
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             throw new ServletException("connection error", ex);
         }
     }
@@ -92,6 +91,39 @@ public class SQLAdapter {
             e.printStackTrace();
         }
         return response;
+    }
+
+    public void sqlInsertBlob(String sql, byte[] bytesToInsert, String id) throws SQLException {
+
+        PreparedStatement ps;
+        ps = conn.prepareStatement(sql);
+
+        ps.setBinaryStream(1, new ByteArrayInputStream(bytesToInsert), bytesToInsert.length);
+        ps.setString(2, id);
+
+        ps.execute();
+
+        conn.commit();
+        conn.close();
+
+    }
+
+    public byte[] sqlSelectBlob(String sql, String id) throws SQLException {
+
+        PreparedStatement ps;
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, id);
+
+        ResultSet rs = ps.executeQuery();
+        byte[] data = null;
+        while (rs.next()) {
+            data = rs.getBytes("data");
+        }
+
+        conn.close();
+
+        return data;
+
     }
 
     public void close() throws SQLException {

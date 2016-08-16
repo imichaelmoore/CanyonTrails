@@ -19,6 +19,9 @@
   "dependencies": {
     "jquery": "1.9.1",
     "coverflow": "^1.3.0",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "moment": "^2.14.1",
+    "gpxviewer": "^1.4.0",
+    "loadgpx": "https://github.com/peplin/gpxviewer/archive/next.zip"
   }
 }

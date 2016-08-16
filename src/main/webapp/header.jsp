@@ -13,18 +13,20 @@
     <script src="<%=request.getContextPath()%>/components/jquery-ui/jquery-ui.min.js"></script>
     <script src="<%=request.getContextPath()%>/components/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <!-- Moment.JS for time manipulations -->
+    <script src="<%=request.getContextPath()%>/components/moment/moment.js"></script>
+
     <!-- Coverflow -->
 
     <script src="<%=request.getContextPath()%>/components/coverflow/reflection.js"></script>
     <script src="<%=request.getContextPath()%>/components/coverflow/jquery.interpolate.min.js"></script>
     <script src="<%=request.getContextPath()%>/components/coverflow/jquery.coverflow.js"></script>
 
+    <jsp:include page="style.jsp"/>
 
-    <style type="text/css">
-        <jsp:include page="style.css" />
-    </style>
 
     <script type="text/javascript">
-        $(document).ready(function() { });
+        $(document).ready(function () {
+        });
     </script>
 </head>

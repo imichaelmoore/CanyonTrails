@@ -1,0 +1,13 @@
+{
+  "name": "loadgpx",
+  "_cacheHeaders": {
+    "ETag": "\"e862945aaa202cf6804b569d462d216a9c594ed0\"",
+    "Content-Length": "121486",
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=gpxviewer-next.zip"
+  },
+  "_release": "e-tag:e862945aa",
+  "_source": "https://github.com/peplin/gpxviewer/archive/next.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/peplin/gpxviewer/archive/next.zip"
+}
