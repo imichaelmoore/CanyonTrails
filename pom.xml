@@ -62,7 +62,6 @@
                 <version>2.2</version>
                 <configuration>
                     <contextFile>./src/main/webapp/WEB-INF/context.xml</contextFile>
-                    <contextReloadable>true</contextReloadable>
                     <httpsPort>8443</httpsPort>
                     <keystoreFile>${basedir}/certificates/keystore.jks</keystoreFile>
                     <keystorePass>changeit</keystorePass>

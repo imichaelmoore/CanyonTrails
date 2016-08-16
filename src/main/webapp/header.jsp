@@ -25,8 +25,4 @@
     <jsp:include page="style.jsp"/>
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-        });
-    </script>
 </head>

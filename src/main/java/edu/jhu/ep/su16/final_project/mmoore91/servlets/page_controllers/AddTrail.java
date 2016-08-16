@@ -21,16 +21,6 @@ public class AddTrail extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        // SessionBean Bean
-        HttpSession session = req.getSession();
-        SessionBean s = null;
-        if (session.getAttribute("sessionBean") == null) {
-            s = new SessionBean();
-        } else {
-            s = (SessionBean) session.getAttribute("sessionBean");
-        }
-
-
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addtrail.jsp");
         dispatcher.forward(req, resp);
 

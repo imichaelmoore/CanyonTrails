@@ -28,3 +28,4 @@ photobox 1.9.9
 
 Various code snippets:
 Get submitted filename - http://stackoverflow.com/questions/2422468/how-to-upload-files-to-server-using-jsp-servlet
+Max-size images with constrained proportions - http://stackoverflow.com/questions/3678378/is-there-a-way-to-specify-a-max-height-or-width-for-an-image
