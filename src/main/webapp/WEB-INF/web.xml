@@ -160,12 +160,17 @@
     </filter>
     <filter-mapping>
         <filter-name>AuthenticatedFilter</filter-name>
-        <url-pattern>/trails</url-pattern>
-        <url-pattern>/trails/add</url-pattern>
-        <url-pattern>/account.jsp</url-pattern>
-        <url-pattern>/timeline.json</url-pattern>
-        <url-pattern>/mytrails.json</url-pattern>
+        <url-pattern>/update-account</url-pattern>
         <url-pattern>/logout</url-pattern>
+        <url-pattern>/trails</url-pattern>
+        <url-pattern>/trails/*</url-pattern>
+        <url-pattern>/api/timeline.json</url-pattern>
+        <url-pattern>/api/mytrails.json</url-pattern>
+        <url-pattern>/api/all_trails.json</url-pattern>
+        <url-pattern>/trail/*</url-pattern>
+        <url-pattern>/api/trail/*</url-pattern>
+        <url-pattern>/api/trails/*</url-pattern>
+        <url-pattern>/api/images_for_trail/*</url-pattern>
     </filter-mapping>
 
 
