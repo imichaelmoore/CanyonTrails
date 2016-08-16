@@ -75,7 +75,9 @@
             url: '<%=request.getContextPath()%>/api/mytrails.json',
             method: 'get',
             success: function (d) {
-                if(d.length > 0) { $('#my_trails').html("");}
+                if (d.length > 0) {
+                    $('#my_trails').html("");
+                }
                 $.each(d, function (k, v) {
                     console.log(v);
                     addNewEntryMyTrails(v.trail_name, v.trail_id);
@@ -87,7 +89,9 @@
             url: '<%=request.getContextPath()%>/api/all_trails.json',
             method: 'get',
             success: function (d) {
-                if(d.length > 0) { $('#all_trails').html("");}
+                if (d.length > 0) {
+                    $('#all_trails').html("");
+                }
                 $.each(d, function (k, v) {
                     console.log(v);
                     addNewEntryAllTrails(v.trail_name, v.trail_id);

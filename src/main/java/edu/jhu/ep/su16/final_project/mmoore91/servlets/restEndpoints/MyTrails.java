@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/**
- * Created by moorema1 on 8/6/16.
- */
 public class MyTrails extends HttpServlet {
 
     private SQLAdapter db;
@@ -37,7 +34,8 @@ public class MyTrails extends HttpServlet {
 
         Gson gson = new Gson();
         db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> results = db.sqlQuery("select name as traiL_name, id as trail_id from trails where owner_uid = ?", Arrays.asList(s.getAuthenticatedUserUID()));
+        ArrayList<HashMap<String, String>> results = db.sqlQuery("select name as traiL_name, " +
+                "id as trail_id from trails where owner_uid = ?", Arrays.asList(s.getAuthenticatedUserUID()));
 
         gson.toJson(results);
 

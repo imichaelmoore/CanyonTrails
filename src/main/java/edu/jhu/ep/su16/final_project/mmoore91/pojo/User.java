@@ -1,7 +1,6 @@
 package edu.jhu.ep.su16.final_project.mmoore91.pojo;
 
 import edu.jhu.ep.su16.final_project.mmoore91.utilities.SQLAdapter;
-
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 
-public class User implements Serializable{
+public class User implements Serializable {
 
     private String name;
     private String emailAddress;
@@ -36,12 +35,13 @@ public class User implements Serializable{
     {
         SQLAdapter db = new SQLAdapter();
         ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE email = ?", Arrays.asList(emailAddress));
-        if(r.size() > 0)
-        {
+        if (r.size() > 0) {
             this.uid = r.get(0).get("uid");
             this.name = r.get(0).get("name");
             this.emailAddress = r.get(0).get("email");
-            if(verifyPassword(password)) { this.validUser = true; }
+            if (verifyPassword(password)) {
+                this.validUser = true;
+            }
         }
 
     }
@@ -50,8 +50,7 @@ public class User implements Serializable{
     {
         SQLAdapter db = new SQLAdapter();
         ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE uid = ?", Arrays.asList(uid));
-        if(r.size() > 0)
-        {
+        if (r.size() > 0) {
             this.uid = r.get(0).get("uid");
             this.name = r.get(0).get("name");
             this.emailAddress = r.get(0).get("email");
@@ -95,7 +94,9 @@ public class User implements Serializable{
 
         if (BCrypt.checkpw(password, r.get(0).get("password_hash"))) {
             return true;
-        } else { return false; }
+        } else {
+            return false;
+        }
     }
 
     public void setPassword(String password) throws ServletException {

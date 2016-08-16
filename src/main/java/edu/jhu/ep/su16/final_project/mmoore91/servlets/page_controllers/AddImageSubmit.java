@@ -17,20 +17,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by moorema1 on 8/6/16.
- */
+
 public class AddImageSubmit extends HttpServlet {
 
     private SQLAdapter db;
-
 
     // Source: http://stackoverflow.com/questions/2422468/how-to-upload-files-to-server-using-jsp-servlet
     private static String getSubmittedFileName(Part part) {
         for (String cd : part.getHeader("content-disposition").split(";")) {
             if (cd.trim().startsWith("filename")) {
                 String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
+                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1);
             }
         }
         return null;

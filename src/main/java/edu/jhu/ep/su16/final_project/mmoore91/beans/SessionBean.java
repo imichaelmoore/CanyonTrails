@@ -4,9 +4,6 @@ import edu.jhu.ep.su16.final_project.mmoore91.pojo.User;
 
 import java.io.Serializable;
 
-/**
- * Created by moorema1 on 8/14/16.
- */
 public class SessionBean implements Serializable {
 
     public String authenticatedUserName;
@@ -48,6 +45,7 @@ public class SessionBean implements Serializable {
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
+
     public void setSuccessMessage(String successMessage) {
         this.successMessage = successMessage;
     }
@@ -59,8 +57,6 @@ public class SessionBean implements Serializable {
     public void setAuthenticated(boolean authenticated) {
         isAuthenticated = authenticated;
     }
-
-
 
 
 }

@@ -14,9 +14,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by moorema1 on 8/6/16.
- */
+
 public class RecentUpdates extends HttpServlet {
 
     private SQLAdapter db;
@@ -36,7 +34,8 @@ public class RecentUpdates extends HttpServlet {
 
         Gson gson = new Gson();
         db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> results = db.sqlQuery("select ROW_NUMBER() OVER() as rn, users.name as user_name,\n" +
+        ArrayList<HashMap<String, String>> results = db.sqlQuery("select ROW_NUMBER() OVER() as rn, " +
+                "users.name as user_name,\n" +
                 "mtime, trails.name as trail_name, update_text, trail_id from timeline tl\n" +
                 "JOIN users ON tl.OWNER_UID = users.uid\n" +
                 "JOIN trails on tl.TRAIL_ID = trails.ID\n" +

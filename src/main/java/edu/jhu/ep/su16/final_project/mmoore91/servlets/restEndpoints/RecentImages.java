@@ -14,11 +14,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 
-/**
- * Created by moorema1 on 8/6/16.
- */
+
 public class RecentImages extends HttpServlet {
 
     private SQLAdapter db;
@@ -46,10 +43,8 @@ public class RecentImages extends HttpServlet {
         HashSet<String> foundProjects = new HashSet<>();
         ArrayList<HashMap<String, String>> cleanResults = new ArrayList<>();
 
-        for(HashMap<String, String> row : results)
-        {
-            if(!foundProjects.contains(row.get("trail_id")))
-            {
+        for (HashMap<String, String> row : results) {
+            if (!foundProjects.contains(row.get("trail_id"))) {
                 cleanResults.add(row);
                 foundProjects.add(row.get("trail_id"));
             }

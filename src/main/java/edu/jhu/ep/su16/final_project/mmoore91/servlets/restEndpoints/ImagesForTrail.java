@@ -14,11 +14,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 
-/**
- * Created by moorema1 on 8/6/16.
- */
 public class ImagesForTrail extends HttpServlet {
 
     private SQLAdapter db;
@@ -36,7 +32,8 @@ public class ImagesForTrail extends HttpServlet {
             s = (SessionBean) session.getAttribute("sessionBean");
         }
 
-        String trail_id = req.getPathInfo().substring(1).replace(".json", "");;
+        String trail_id = req.getPathInfo().substring(1).replace(".json", "");
+
 
         Gson gson = new Gson();
         db = new SQLAdapter();

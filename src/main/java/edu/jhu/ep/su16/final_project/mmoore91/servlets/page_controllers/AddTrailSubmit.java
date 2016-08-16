@@ -6,7 +6,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
 import javax.servlet.ServletException;
@@ -14,29 +13,20 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.sql.Connection;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by moorema1 on 8/6/16.
- */
 public class AddTrailSubmit extends HttpServlet {
-    private Connection conn;
 
     private SQLAdapter db;
-
-    @Override
-    public void init() throws ServletException {
-    }
 
     // Source: http://stackoverflow.com/questions/2422468/how-to-upload-files-to-server-using-jsp-servlet
     private static String getSubmittedFileName(Part part) {
         for (String cd : part.getHeader("content-disposition").split(";")) {
             if (cd.trim().startsWith("filename")) {
                 String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
+                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1);
             }
         }
         return null;
@@ -55,8 +45,8 @@ public class AddTrailSubmit extends HttpServlet {
             s = (SessionBean) session.getAttribute("sessionBean");
         }
 
-        String trailName = null; //req.getParameter("name");
-        String description = null; //req.getParameter("description");
+        String trailName = null;
+        String description = null;
 
         String gpxFile = null;
 
@@ -72,8 +62,6 @@ public class AddTrailSubmit extends HttpServlet {
                         description = fieldValue;
                     }
                 } else {
-                    String fieldName = item.getFieldName();
-                    String fileName = FilenameUtils.getName(item.getName());
                     InputStream inputStream = item.getInputStream();
                     StringWriter writer = new StringWriter();
                     IOUtils.copy(inputStream, writer);

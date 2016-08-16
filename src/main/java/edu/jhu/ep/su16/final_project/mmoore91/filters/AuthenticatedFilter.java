@@ -7,13 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class AuthenticatedFilter implements Filter {
-
-
-    private ArrayList<String> urlList;
 
     @Override
     public void init(FilterConfig config) throws ServletException {
@@ -24,7 +19,6 @@ public class AuthenticatedFilter implements Filter {
     public void destroy() {
 
     }
-
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
@@ -44,7 +38,7 @@ public class AuthenticatedFilter implements Filter {
             }
             s.setErrorMessage("You must login to see this page.");
 
-            if(s.isAuthenticated() == false) res.sendRedirect(req.getContextPath() + "/login_required.jsp");
+            if (s.isAuthenticated() == false) res.sendRedirect(req.getContextPath() + "/login_required.jsp");
 
             chain.doFilter(req, res);
 

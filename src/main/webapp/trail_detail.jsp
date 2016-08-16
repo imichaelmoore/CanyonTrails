@@ -28,16 +28,15 @@
     }
 
     #map {
-        width:100%;
+        width: 100%;
         vertical-align: middle;
         horiz-align: center;
     }
 
     .largeImage {
 
-        zoom: 2;  //increase if you have very small images
-
-    display: block;
+        zoom: 2;
+    / / increase if you have very small images display: block;
         margin: auto;
         height: auto;
         max-height: 100%;
@@ -45,6 +44,7 @@
         width: auto;
         max-width: 100%;
     }
+
     }
 </style>
 
@@ -63,23 +63,20 @@
             dataType: "xml",
             success: function (data) {
                 var parser = new GPXParser(data, map);
-                parser.setTrackColour("#ff0000");     // Set the track line colour
-                parser.setTrackWidth(5);          // Set the track line width
-                parser.setMinTrackPointDelta(0.001);      // Set the minimum distance between track points
+                parser.setTrackColour("#ff0000");
+                parser.setTrackWidth(5);
+                parser.setMinTrackPointDelta(0.001);
                 parser.centerAndZoom(data);
-                parser.addTrackpointsToMap();         // Add the trackpoints
-                parser.addWaypointsToMap();           // Add the waypoints
+                parser.addTrackpointsToMap();
+                parser.addWaypointsToMap();
             }
         });
     }
 
-    function displayImage(id)
-    {
+    function displayImage(id) {
         $('#map').html("<img src='<%=request.getContextPath()%>/api/image/" + id + "' class='largeImage' />");
         $('#map').css("background-color", "#000000");
         $('#map').css("height", "auto");
-        <%--$('#map').css("background", "url('<%=request.getContextPath()%>/api/image/" + id + "') no-repeat");--%>
-        <%--$('#map').css("background-size", "300px 70vh");--%>
 
     }
 

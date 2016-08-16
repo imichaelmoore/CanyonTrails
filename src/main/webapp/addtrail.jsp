@@ -1,17 +1,17 @@
 <jsp:useBean id="sessionBean"
              class="edu.jhu.ep.su16.final_project.mmoore91.beans.SessionBean"
-             scope="session" >
+             scope="session">
 </jsp:useBean>
 
 
 <html lang="en">
-<jsp:include page="header.jsp" />
+<jsp:include page="header.jsp"/>
 <body>
 
-<jsp:include page="navbar.jsp" />
+<jsp:include page="navbar.jsp"/>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $("#add_trail_form").submit(function (event) {
 
@@ -27,16 +27,8 @@
 <div class="container">
     <h2>Add a new trail</h2>
 
-    <form action="<%=request.getContextPath()%>/trails/add-submit" method="post" id='add_trail_form' enctype="multipart/form-data">
-
-        <%--<% if(errorMessage != null) { %>--%>
-        <%--<div class="form-section-header" style="color:red">Error</div>--%>
-        <%--<div class="form-section">--%>
-        <%--<div class="form-group">--%>
-        <%--<%= errorMessage %>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<% } %>--%>
+    <form action="<%=request.getContextPath()%>/trails/add-submit" method="post" id='add_trail_form'
+          enctype="multipart/form-data">
 
         <div class="form-section">
             <div class="form-group">
@@ -52,19 +44,19 @@
                 <input type="file" name="gpx" class="form-control" id="gpx" required="true">
             </div>
             <div class="form-group">
-                <b>All fields are required.</b>  You will have the ability to attach images after the trail is created.
+                <b>All fields are required.</b> You will have the ability to attach images after the trail is created.
             </div>
 
         </div>
 
         <div class="submit-section">
-            <input type="submit" class="btn btn-info" value="Create New Trail" />
+            <input type="submit" class="btn btn-info" value="Create New Trail"/>
         </div>
 
     </form>
 
 
-</div> <!-- /container -->
+</div>
 
 </body>
 </html>

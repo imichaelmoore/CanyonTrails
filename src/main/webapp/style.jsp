@@ -185,12 +185,11 @@
         border: 0;
         background-position: center center;
         background-size: cover;
-        margin-right:1px;
+        margin-right: 1px;
     }
 
-    .frontpageText
-    {
-        padding:15px;
+    .frontpageText {
+        padding: 15px;
     }
 
 </style>

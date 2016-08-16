@@ -14,9 +14,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by moorema1 on 8/12/16.
- */
 public class SQLAdapter {
 
     public Connection conn;
@@ -74,7 +71,8 @@ public class SQLAdapter {
                 while (rs.next()) {
                     HashMap<String, String> row = new HashMap<>();
                     for (i = 1; i <= metadata.getColumnCount(); i++) {
-                        row.put(metadata.getColumnName(i).toLowerCase(), rs.getString(i));  //Derby stores all columns as caps?!
+                        //Derby stores all columns as caps?!
+                        row.put(metadata.getColumnName(i).toLowerCase(), rs.getString(i));
                     }
                     response.add(row);
                 }

@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/**
- * Created by moorema1 on 8/6/16.
- */
 public class AllTrails extends HttpServlet {
 
     private SQLAdapter db;
