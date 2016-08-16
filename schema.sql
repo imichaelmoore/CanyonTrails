@@ -1,10 +1,3 @@
-DROP TABLE users;
-DROP TABLE trails;
-DROP TABLE images;
-DROP TABLE images_to_trails;
-DROP TABLE timeline;
-
-
 CREATE TABLE users (
   uid           CHAR(36) PRIMARY KEY,
   password_hash CHAR(60),
@@ -24,7 +17,6 @@ CREATE TABLE trails (
 CREATE INDEX trails_owner_uid
   ON trails (owner_uid);
 
-DROP TABLE images;
 CREATE TABLE images (
   id        CHAR(36) PRIMARY KEY,
   mimetype  VARCHAR(255),
