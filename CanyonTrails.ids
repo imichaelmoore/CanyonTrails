@@ -5,6 +5,128 @@
       <identifier-quote-string>&quot;</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="DERBY" format-version="2.6">
+      <schema id="1" name="CANYON">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="APP"/>
+      <schema id="3" name="NULLID"/>
+      <schema id="4" name="SQLJ"/>
+      <schema id="5" name="SYS"/>
+      <schema id="6" name="SYSCAT"/>
+      <schema id="7" name="SYSCS_DIAG"/>
+      <schema id="8" name="SYSCS_UTIL"/>
+      <schema id="9" name="SYSFUN"/>
+      <schema id="10" name="SYSIBM"/>
+      <schema id="11" name="SYSPROC"/>
+      <schema id="12" name="SYSSTAT"/>
+      <table id="13" parent="1" name="IMAGES"/>
+      <table id="14" parent="1" name="TIMELINE"/>
+      <table id="15" parent="1" name="TRAILS"/>
+      <table id="16" parent="1" name="USERS"/>
+      <column id="17" parent="13" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(36)|1</data-type>
+      </column>
+      <column id="18" parent="13" name="MIMETYPE">
+        <data-type>VARCHAR(255)|12</data-type>
+      </column>
+      <column id="19" parent="13" name="TRAIL_ID">
+        <data-type>CHAR(36)|1</data-type>
+      </column>
+      <column id="20" parent="13" name="OWNER_UID">
+        <data-type>CHAR(36)|1</data-type>
+      </column>
+      <column id="21" parent="13" name="UPLOADED">
+        <data-type>TIMESTAMP(29,9)|93</data-type>
+      </column>
+      <column id="22" parent="13" name="DATA">
+        <data-type>BLOB(max)|2004</data-type>
+      </column>
+      <index id="23" parent="13" name="IMAGES_TRAIL_ID">
+        <columns>TRAIL_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="24" parent="13" name="IMAGES_OWNER_UID">
+        <columns>OWNER_UID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="25" parent="13" name="SQL160816134614810">
+        <name-surrogate>1</name-surrogate>
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="26" parent="14" name="OWNER_UID">
+        <data-type>CHAR(36)|1</data-type>
+      </column>
+      <column id="27" parent="14" name="MTIME">
+        <data-type>TIMESTAMP(29,9)|93</data-type>
+        <default-expression>current_timestamp</default-expression>
+      </column>
+      <column id="28" parent="14" name="UPDATE_TEXT">
+        <data-type>LONG VARCHAR(32700)|-1</data-type>
+      </column>
+      <column id="29" parent="14" name="TRAIL_ID">
+        <data-type>CHAR(36)|1</data-type>
+        <default-expression>&apos;NULL&apos;</default-expression>
+      </column>
+      <index id="30" parent="14" name="TIMELINE_OWNER_UID">
+        <columns>OWNER_UID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="31" parent="14" name="TIMELINE_TRAIL_ID">
+        <columns>TRAIL_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="32" parent="15" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(36)|1</data-type>
+      </column>
+      <column id="33" parent="15" name="OWNER_UID">
+        <data-type>CHAR(36)|1</data-type>
+      </column>
+      <column id="34" parent="15" name="NAME">
+        <data-type>VARCHAR(255)|12</data-type>
+      </column>
+      <column id="35" parent="15" name="DESCRIPTION">
+        <data-type>LONG VARCHAR(32700)|-1</data-type>
+      </column>
+      <column id="36" parent="15" name="GPX">
+        <data-type>CLOB(max)|2005</data-type>
+      </column>
+      <index id="37" parent="15" name="TRAILS_OWNER_UID">
+        <columns>OWNER_UID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="38" parent="15" name="SQL160816134601860">
+        <name-surrogate>1</name-surrogate>
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="39" parent="16" name="UID">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(36)|1</data-type>
+      </column>
+      <column id="40" parent="16" name="PASSWORD_HASH">
+        <data-type>CHAR(60)|1</data-type>
+      </column>
+      <column id="41" parent="16" name="NAME">
+        <data-type>VARCHAR(255)|12</data-type>
+      </column>
+      <column id="42" parent="16" name="EMAIL">
+        <data-type>VARCHAR(255)|12</data-type>
+      </column>
+      <index id="43" parent="16" name="USERS_EMAIL">
+        <columns>EMAIL</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="44" parent="16" name="SQL160816134601800">
+        <name-surrogate>1</name-surrogate>
+        <columns>UID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
   </data-source>
   <data-source name="Derby (Remote) - jdbc:derby://127.0.0.1/canyontrails;create=true" uuid="fb1ed073-e953-4701-bf4b-266efb02c3d4">
     <database-info product="Apache Derby" version="10.12.1.1 - (1704137)" jdbc-version="4.2" driver-name="Apache Derby Network Client JDBC Driver" driver-version="10.11.1.1 - (1616546)">
