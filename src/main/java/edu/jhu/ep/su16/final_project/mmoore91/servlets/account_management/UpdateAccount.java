@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/*
+ * This servlet receives a update account form post, processes it, and redirects appropriately.
+ */
+
 
 public class UpdateAccount extends HttpServlet {
 

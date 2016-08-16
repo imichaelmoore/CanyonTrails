@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 
+/*
+ * This servlet receives a login form post and redirects appropriately.
+ */
+
 public class Login extends HttpServlet {
 
     @Override

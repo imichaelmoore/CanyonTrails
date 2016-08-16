@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/*
+ * This filter checks the session bean to see if a user is currently logged in.
+ * If not, it redirects to a login_required page.
+ */
+
 public class AuthenticatedFilter implements Filter {
 
     @Override

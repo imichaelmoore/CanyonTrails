@@ -14,6 +14,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+ * This servlet returns a JSON file containing a list of recent timeline updates in the system.
+ */
 
 public class RecentUpdates extends HttpServlet {
 

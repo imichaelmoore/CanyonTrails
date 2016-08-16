@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/*
+ * This servlet returns an image from the database.
+ */
 
 public class FetchImage extends HttpServlet {
 

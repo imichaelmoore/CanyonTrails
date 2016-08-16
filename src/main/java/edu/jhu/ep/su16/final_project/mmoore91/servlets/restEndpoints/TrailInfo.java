@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/*
+ * Depending on the file extension (.json or .gpx) this servlet returns a JSON file containing information about the
+ * current trail, or the .gpx file containing the GPS track for the current trail respectively.
+ */
+
 public class TrailInfo extends HttpServlet {
 
     @Override
@@ -32,7 +37,7 @@ public class TrailInfo extends HttpServlet {
 
         Gson gson = new Gson();
 
-        String requestFileName = req.getPathInfo().substring(1);
+        String requestFileName = req.getPathInfo().substring(1); // Cuts off the "/" to leave just the trail ID
 
         if (requestFileName.contains(".json")) {
 

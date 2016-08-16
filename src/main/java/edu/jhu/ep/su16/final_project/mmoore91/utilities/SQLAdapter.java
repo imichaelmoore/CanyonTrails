@@ -14,6 +14,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+/*
+ * Rather than use a heavyweight ORM, I wrote a simple class to manage SQL queries and return results in a very
+ * easy-to-use ArrayList<HashMap<String, String>> format.
+ *
+ * If I were to do this again, I might make it return ArrayList<HashMap<String, Object>> so I wouldn't need to have
+ * special functions to return byte arrays.
+ */
+
 public class SQLAdapter {
 
     public Connection conn;
@@ -22,6 +30,7 @@ public class SQLAdapter {
 
     Logger logger = LoggerFactory.getLogger(SQLAdapter.class);
 
+    // Attach to the derby database, as defined in context.xml
     public SQLAdapter() throws ServletException {
 
         try {
@@ -39,11 +48,14 @@ public class SQLAdapter {
         }
     }
 
+    // Run a generic query with no parameters, return results
     public ArrayList<HashMap<String, String>> sqlQuery(String sql) {
         List<String> l = Arrays.asList();
         return this.sqlQuery(sql, l);
     }
 
+    // Run a query with parameters (properly done using prepared statements to avoid injection attacks) and return
+    // results
     public ArrayList<HashMap<String, String>> sqlQuery(String sql, List<String> parameters) {
         Statement stmnt = null;
         ResultSet rs = null;
@@ -62,7 +74,7 @@ public class SQLAdapter {
             }
 
             if (sql.toLowerCase().startsWith("insert ") || sql.toLowerCase().startsWith("update ")) {
-                pstmt.executeUpdate();
+                pstmt.executeUpdate();  // must use executeUpdate() if you want to make changes
             } else {
 
                 rs = pstmt.executeQuery();
@@ -91,6 +103,7 @@ public class SQLAdapter {
         return response;
     }
 
+    // Special-case for inserting blobs (images)
     public void sqlInsertBlob(String sql, byte[] bytesToInsert, String id) throws SQLException {
 
         PreparedStatement ps;
@@ -106,6 +119,7 @@ public class SQLAdapter {
 
     }
 
+    // Special-case for retreiving blobs (images)
     public byte[] sqlSelectBlob(String sql, String id) throws SQLException {
 
         PreparedStatement ps;

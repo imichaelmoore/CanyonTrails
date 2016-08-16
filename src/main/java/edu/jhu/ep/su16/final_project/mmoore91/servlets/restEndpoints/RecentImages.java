@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/*
+ * This servlet returns a JSON file containing a list of recent images in the system
+ */
 
 public class RecentImages extends HttpServlet {
 
@@ -35,7 +38,9 @@ public class RecentImages extends HttpServlet {
 
         Gson gson = new Gson();
         db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> results = db.sqlQuery("select  ROW_NUMBER() OVER() as rn, " +
+
+        // I kind-of don't like Derby.  I miss more extended SQL dialects.
+        ArrayList<HashMap<String, String>> results = db.sqlQuery("select ROW_NUMBER() OVER() as rn, " +
                 "images.id as image_id, images.trail_id, images.owner_uid, trails.name as trail_name," +
                 " users.name as user_name FROM images JOIN trails ON trails.id = images.trail_id " +
                 "JOIN users ON users.uid = trails.owner_uid ORDER BY uploaded DESC FETCH FIRST 50 ROWS ONLY");

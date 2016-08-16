@@ -17,6 +17,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
+/*
+ * This servlet receives an image upload form post, inserts the image and metadata into the database,
+ * and redirects appropriately.
+ */
+
 
 public class AddImageSubmit extends HttpServlet {
 
@@ -51,6 +56,8 @@ public class AddImageSubmit extends HttpServlet {
 
         byte[] image = null;
 
+        // As this is a multipart-form-upload, iterate through each part and determine if it is a form field
+        // or an image.
         try {
             List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
             for (FileItem item : items) {
@@ -61,6 +68,7 @@ public class AddImageSubmit extends HttpServlet {
                         trail_id = fieldValue;
                     }
                 } else {
+                    // Get the image as a Byte array
                     InputStream inputStream = item.getInputStream();
                     contentType = item.getContentType();
                     image = IOUtils.toByteArray(inputStream);
@@ -70,11 +78,13 @@ public class AddImageSubmit extends HttpServlet {
             throw new ServletException("Cannot parse multipart request.", e);
         }
 
+        // Insert the metadata
         String image_id = UUID.randomUUID().toString();
         List params = Arrays.asList(image_id, contentType, trail_id, s.getAuthenticatedUserUID());
         db = new SQLAdapter();
         db.sqlQuery("INSERT INTO images (id, mimetype, trail_id, owner_uid) VALUES (?,?,?,?)", params);
 
+        // Insert the image as a blob, using a special SQLAdapter function for blobs.
         try {
             db = new SQLAdapter();
             db.sqlInsertBlob("UPDATE images SET data = ? WHERE id = ?", image, image_id);
@@ -82,7 +92,7 @@ public class AddImageSubmit extends HttpServlet {
             e.printStackTrace();
         }
 
-
+        // Insert an update to the timeline table
         String updateText = "New image added";
         db = new SQLAdapter();
         db.sqlQuery("INSERT INTO timeline (owner_uid, update_text, trail_id) VALUES (?,?,?)",

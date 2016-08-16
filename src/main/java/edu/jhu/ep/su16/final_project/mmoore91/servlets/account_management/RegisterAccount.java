@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/*
+ * This servlet receives a user registration form post, creates the user, and redirects appropriately.
+ */
+
 public class RegisterAccount extends HttpServlet {
 
 
@@ -33,7 +37,8 @@ public class RegisterAccount extends HttpServlet {
         }
 
         SQLAdapter db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE email = ?", Arrays.asList(req.getParameter("email")));
+        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE email = ?",
+                                                            Arrays.asList(req.getParameter("email")));
         if (r.size() > 0) {
             s.setErrorMessage("A user with that email address already exists.");
             sendToURL += "/register.jsp";

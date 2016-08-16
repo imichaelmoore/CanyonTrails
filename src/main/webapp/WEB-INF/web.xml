@@ -33,7 +33,7 @@
     </servlet>
     <servlet>
         <servlet-name>Trails</servlet-name>
-        <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers.MyTrails</servlet-class>
+        <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers.Trails</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddTrail</servlet-name>

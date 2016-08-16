@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/*
+ * This servlet returns a JSON file containing a list of trails for the current user.
+ */
+
 public class MyTrails extends HttpServlet {
 
     private SQLAdapter db;

@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/*
+ * This servlet receives the /trail/* GET request and displays the proper JSP.
+ * This is mainly for making the URL structure more clear.
+ */
+
 
 public class Trail extends HttpServlet {
 

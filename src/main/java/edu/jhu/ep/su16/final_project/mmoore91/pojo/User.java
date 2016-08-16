@@ -10,6 +10,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.UUID;
 
+/*
+ * This POJO (Plain-Old Java Object) maintains all the logic around a user account.
+ */
+
 
 public class User implements Serializable {
 
@@ -18,23 +22,27 @@ public class User implements Serializable {
     private String uid;
     private boolean validUser = false;
 
-    public User(String name, String emailAddress, String password) throws ServletException // Create a new user
+    // Create a new user
+    public User(String name, String emailAddress, String password) throws ServletException
     {
         this.name = name;
         this.emailAddress = emailAddress;
         this.uid = UUID.randomUUID().toString();
 
         SQLAdapter db = new SQLAdapter();
-        db.sqlQuery("INSERT INTO users (uid, name, email) VALUES (?, ?, ?)", Arrays.asList(this.uid, this.name, this.emailAddress));
+        db.sqlQuery("INSERT INTO users (uid, name, email) VALUES (?, ?, ?)",
+                    Arrays.asList(this.uid, this.name, this.emailAddress));
 
         setPassword(password);
         this.validUser = true;
     }
 
-    public User(String emailAddress, String password) throws ServletException // Get existing user and validate password
+    // Get existing user and validate password
+    public User(String emailAddress, String password) throws ServletException
     {
         SQLAdapter db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE email = ?", Arrays.asList(emailAddress));
+        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE email = ?",
+                                                           Arrays.asList(emailAddress));
         if (r.size() > 0) {
             this.uid = r.get(0).get("uid");
             this.name = r.get(0).get("name");
@@ -46,10 +54,12 @@ public class User implements Serializable {
 
     }
 
-    public User(String uid) throws ServletException  // Get existing user and populate object
+    // Get existing user and populate object
+    public User(String uid) throws ServletException
     {
         SQLAdapter db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE uid = ?", Arrays.asList(uid));
+        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT * FROM users WHERE uid = ?",
+                                                           Arrays.asList(uid));
         if (r.size() > 0) {
             this.uid = r.get(0).get("uid");
             this.name = r.get(0).get("name");
@@ -58,6 +68,7 @@ public class User implements Serializable {
         }
     }
 
+    // Update the user's name
     public void updateName(String name) throws ServletException {
         SQLAdapter db = new SQLAdapter();
         db.sqlQuery("UPDATE users SET name = ? WHERE uid = ?", Arrays.asList(name, this.uid));
@@ -87,10 +98,12 @@ public class User implements Serializable {
         this.emailAddress = emailAddress;
     }
 
+    // Verify the user's password
     public boolean verifyPassword(String password) throws ServletException {
 
         SQLAdapter db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT password_hash FROM users WHERE uid = ?", Arrays.asList(this.uid));
+        ArrayList<HashMap<String, String>> r = db.sqlQuery("SELECT password_hash FROM users WHERE uid = ?",
+                                                           Arrays.asList(this.uid));
 
         if (BCrypt.checkpw(password, r.get(0).get("password_hash"))) {
             return true;
@@ -99,6 +112,7 @@ public class User implements Serializable {
         }
     }
 
+    // Set the user's password
     public void setPassword(String password) throws ServletException {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
         SQLAdapter db = new SQLAdapter();

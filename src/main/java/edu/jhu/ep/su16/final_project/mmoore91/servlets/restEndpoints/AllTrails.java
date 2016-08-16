@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/*
+ * This servlet returns a JSON file containing a list of all trails in the system aside from the current user's.
+ */
+
+
 public class AllTrails extends HttpServlet {
 
     private SQLAdapter db;
@@ -34,7 +39,8 @@ public class AllTrails extends HttpServlet {
 
         Gson gson = new Gson();
         db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> results = db.sqlQuery("select name as traiL_name, id as trail_id from trails where owner_uid != ?", Arrays.asList(s.getAuthenticatedUserUID()));
+        ArrayList<HashMap<String, String>> results = db.sqlQuery("select name as traiL_name, id as trail_id " +
+                "from trails where owner_uid != ?", Arrays.asList(s.getAuthenticatedUserUID()));
 
         gson.toJson(results);
 

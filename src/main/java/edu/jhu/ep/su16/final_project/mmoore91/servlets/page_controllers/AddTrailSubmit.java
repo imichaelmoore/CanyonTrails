@@ -17,6 +17,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
+/*
+ * This servlet receives an "add trail" form post, inserts the image and metadata into the database,
+ * and redirects appropriately.
+ */
 public class AddTrailSubmit extends HttpServlet {
 
     private SQLAdapter db;
@@ -50,6 +54,8 @@ public class AddTrailSubmit extends HttpServlet {
 
         String gpxFile = null;
 
+        // As this is a multipart-form-upload, iterate through each part and determine if it is a form field
+        // or a gpx file.
         try {
             List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
             for (FileItem item : items) {

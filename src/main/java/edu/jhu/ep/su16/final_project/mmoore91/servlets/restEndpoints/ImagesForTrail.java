@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/*
+ * This servlet returns a JSON file containing a list of images for a specified trail.
+ */
+
 public class ImagesForTrail extends HttpServlet {
 
     private SQLAdapter db;
@@ -37,7 +41,8 @@ public class ImagesForTrail extends HttpServlet {
 
         Gson gson = new Gson();
         db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> results = db.sqlQuery("select id FROM images WHERE trail_id = ?", Arrays.asList(trail_id));
+        ArrayList<HashMap<String, String>> results = db.sqlQuery("select id FROM images WHERE trail_id = ?",
+                                                                 Arrays.asList(trail_id));
 
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();

@@ -4,13 +4,19 @@ import edu.jhu.ep.su16.final_project.mmoore91.pojo.User;
 
 import java.io.Serializable;
 
+/*
+ * This bean stores information about the current session.
+ * I chose to use a Bean rather than the session object in order to enforce some naming conventions
+ * and be sure I was consistent in my use of the session.
+ */
+
 public class SessionBean implements Serializable {
 
     public String authenticatedUserName;
-    public String authenticatedUserUID;
+    public String authenticatedUserUID;  // UUID4 format as a string
     public String authenticatedUserEmailAddress;
-    public String errorMessage = null;
-    public String successMessage = null;
+    public String errorMessage = null;  // Used to display an error message on a form submission
+    public String successMessage = null;// Used to display an success message on a form submission
     public boolean isAuthenticated = false;
 
 

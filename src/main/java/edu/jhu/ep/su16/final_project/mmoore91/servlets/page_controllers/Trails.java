@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Created by moorema1 on 8/6/16.
+/*
+ * This servlet receives the /trails GET request and displays the proper JSP.
+ * This is mainly for making the URL structure more clear.
  */
-public class MyTrails extends HttpServlet {
+
+
+public class Trails extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
