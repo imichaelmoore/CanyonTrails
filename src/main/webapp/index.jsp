@@ -64,6 +64,7 @@
     <!-- Main component for a primary marketing message or call to action -->
     <div class="row">
         <div class="col-md-12">
+            <h2></h2>
                 <div class="photos" id="photolist">
                 </div>
                 <div id="photos-info">

@@ -77,6 +77,7 @@
     {
         $('#map').html("<img src='<%=request.getContextPath()%>/api/image/" + id + "' class='largeImage' />");
         $('#map').css("background-color", "#000000");
+        $('#map').css("height", "auto");
         <%--$('#map').css("background", "url('<%=request.getContextPath()%>/api/image/" + id + "') no-repeat");--%>
         <%--$('#map').css("background-size", "300px 70vh");--%>
 
@@ -131,7 +132,7 @@
             <h3></h3>
             <%--<% for(Strung u : )--%>
             <div id="timeline"></div>
-            <div id="map" style="height:70vh;border:solid 1px #666;"></div>
+            <div id="map" style="height:600px;border:solid 1px #666;"></div>
             <div id="info">&nbsp;</div>
 
         </div>

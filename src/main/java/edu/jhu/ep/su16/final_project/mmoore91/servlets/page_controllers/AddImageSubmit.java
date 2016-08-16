@@ -92,7 +92,7 @@ public class AddImageSubmit extends HttpServlet {
                 Arrays.asList(s.getAuthenticatedUserUID(), updateText, trail_id));
 
 
-        resp.sendRedirect(req.getContextPath() + "/trails");
+        resp.sendRedirect(req.getContextPath() + "/trails/" + trail_id);
 
     }
 }
