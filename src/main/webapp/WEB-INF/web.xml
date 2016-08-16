@@ -34,6 +34,19 @@
     <servlet-name>Logout</servlet-name>
     <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.account_management.Logout</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>MyTrails</servlet-name>
+    <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers.MyTrails</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddTrail</servlet-name>
+    <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers.AddTrail</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddTrailSubmit</servlet-name>
+    <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers.AddTrailSubmit</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>TestServlet</servlet-name>
@@ -55,5 +68,18 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MyTrails</servlet-name>
+    <url-pattern>/mytrails</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddTrail</servlet-name>
+    <url-pattern>/trails/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddTrailSubmit</servlet-name>
+    <url-pattern>/trails/add-submit</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>

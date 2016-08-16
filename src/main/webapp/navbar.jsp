@@ -18,22 +18,11 @@
             <ul class="nav navbar-nav">
                 <% if (sessionBean.isAuthenticated() == true) { %>
 
-            <li><a href="trails/">My Trails</a></li>
-            <li><a href="trails/add">Add Trail</a></li>
+            <li><a href="<%=request.getContextPath()%>/mytrails">My Trails</a></li>
+            <li><a href="<%=request.getContextPath()%>/trails/add">Add Trail</a></li>
 
                 <% } %>
-                <%--<li class="dropdown">--%>
-                <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>--%>
-                <%--<ul class="dropdown-menu">--%>
-                <%--<li><a href="#">Action</a></li>--%>
-                <%--<li><a href="#">Another action</a></li>--%>
-                <%--<li><a href="#">Something else here</a></li>--%>
-                <%--<li role="separator" class="divider"></li>--%>
-                <%--<li class="dropdown-header">Nav header</li>--%>
-                <%--<li><a href="#">Separated link</a></li>--%>
-                <%--<li><a href="#">One more separated link</a></li>--%>
-                <%--</ul>--%>
-                <%--</li>--%>
+
             </ul>
             <% if (sessionBean.isAuthenticated() == false) { %>
             <ul class="nav navbar-nav navbar-right">
@@ -43,7 +32,7 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8"
+                                    <form class="form" role="form" method="post" action="<%=request.getContextPath()%>/login" accept-charset="UTF-8"
                                           id="login-nav">
                                         <div class="form-group">
                                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -62,7 +51,7 @@
                                     </form>
                                 </div>
                                 <div class="bottom text-center">
-                                    No account? <a href="register.jsp"><b>Register</b></a>
+                                    No account? <a href="<%=request.getContextPath()%>/register.jsp"><b>Register</b></a>
                                 </div>
                             </div>
                         </li>
@@ -77,10 +66,10 @@
                     </b> <span class="caret"></span></a>
                     <ul id="" class="dropdown-menu">
 
-                        <li><a href="account.jsp">My Account</a></li>
+                        <li><a href="<%=request.getContextPath()%>/account.jsp">My Account</a></li>
 
                         <li>
-                            <a href="logout"><b>Logout</b></a>
+                            <a href="<%=request.getContextPath()%>/logout"><b>Logout</b></a>
                         </li>
                     </ul>
                 </li>

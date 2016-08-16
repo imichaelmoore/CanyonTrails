@@ -8,14 +8,13 @@ CREATE TABLE users (
 );
 CREATE UNIQUE INDEX users_email ON users(email);
 
+DROP TABLE trails;
 CREATE TABLE trails (
   id char(36) PRIMARY KEY,
   owner_uid char(36),
   name VARCHAR(255),
   description LONG VARCHAR,
-  gpx XML,
-  cover_image CHAR(36)
-);
+  gpx CLOB);
 CREATE INDEX trails_owner_uid ON trails(owner_uid);
 
 CREATE TABLE images (
@@ -31,3 +30,12 @@ CREATE TABLE images_to_trails (
   trail_id CHAR(36)
 );
 CREATE INDEX i2t_trail_id ON images_to_trails(trail_id);
+
+
+CREATE TABLE timeline (
+  owner_uid char(36),
+  update_text LONG VARCHAR,
+  trail_id CHAR(36)  DEFAULT NULL
+);
+CREATE INDEX timeline_owner_uid ON timeline(owner_uid);
+CREATE INDEX timeline_trail_id ON timeline(trail_id);

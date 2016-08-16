@@ -2,22 +2,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Johns Hopkins Annual Software Development Seminar</title>
+    <title>CanyonTrails</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/components/bootstrap/dist/css/bootstrap-theme.min.css">
 
     <!-- JQuery and Bootstrap JS -->
-    <script src="components/jquery/jquery.min.js"></script>
-    <script src="components/jquery-ui/jquery-ui.min.js"></script>
-    <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/components/jquery/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="<%=request.getContextPath()%>/components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Coverflow -->
 
-    <script src="components/coverflow/reflection.js"></script>
-    <script src="components/coverflow/jquery.interpolate.min.js"></script>
-    <script src="components/coverflow/jquery.coverflow.js"></script>
+    <script src="<%=request.getContextPath()%>/components/coverflow/reflection.js"></script>
+    <script src="<%=request.getContextPath()%>/components/coverflow/jquery.interpolate.min.js"></script>
+    <script src="<%=request.getContextPath()%>/components/coverflow/jquery.coverflow.js"></script>
 
 
     <style type="text/css">

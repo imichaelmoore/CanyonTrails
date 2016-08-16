@@ -94,6 +94,10 @@ public class SQLAdapter {
         return response;
     }
 
+    public void close() throws SQLException {
+        conn.commit();
+        conn.close();
+    }
 
 
 }

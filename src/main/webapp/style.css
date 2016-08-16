@@ -142,3 +142,9 @@ padding-top: 65px;
     border-radius:5px;
     padding:5px;
 }
+
+ .trailsDisplay
+ .trailsDisplay{
+     width:70vw;
+     border:solid 1px red;
+ }
