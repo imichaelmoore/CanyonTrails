@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by moorema1 on 8/6/16.
@@ -36,13 +38,26 @@ public class RecentImages extends HttpServlet {
 
         Gson gson = new Gson();
         db = new SQLAdapter();
-        ArrayList<HashMap<String, String>> results = db.sqlQuery("select ROW_NUMBER() OVER() as rn, images.id, images.trail_id, images.owner_uid, trails.name, users.name FROM images JOIN trails ON trails.id = images.trail_id JOIN users ON users.uid = trails.owner_uid ORDER BY uploaded DESC FETCH FIRST 10 ROWS ONLY");
+        ArrayList<HashMap<String, String>> results = db.sqlQuery("select  ROW_NUMBER() OVER() as rn, " +
+                "images.id as image_id, images.trail_id, images.owner_uid, trails.name as trail_name," +
+                " users.name as user_name FROM images JOIN trails ON trails.id = images.trail_id " +
+                "JOIN users ON users.uid = trails.owner_uid ORDER BY uploaded DESC FETCH FIRST 50 ROWS ONLY");
 
-        gson.toJson(results);
+        HashSet<String> foundProjects = new HashSet<>();
+        ArrayList<HashMap<String, String>> cleanResults = new ArrayList<>();
+
+        for(HashMap<String, String> row : results)
+        {
+            if(!foundProjects.contains(row.get("trail_id")))
+            {
+                cleanResults.add(row);
+                foundProjects.add(row.get("trail_id"));
+            }
+        }
 
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();
-        out.print(gson.toJson(results));
+        out.print(gson.toJson(cleanResults));
         out.flush();
 
     }

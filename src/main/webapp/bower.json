@@ -22,6 +22,7 @@
     "bootstrap": "^3.3.7",
     "moment": "^2.14.1",
     "gpxviewer": "^1.4.0",
-    "loadgpx": "https://github.com/peplin/gpxviewer/archive/next.zip"
+    "loadgpx": "https://github.com/peplin/gpxviewer/archive/next.zip",
+    "photobox": "^1.9.9"
   }
 }

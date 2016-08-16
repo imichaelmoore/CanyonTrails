@@ -23,9 +23,9 @@
 
 
 
-  <h2>Register a new Account</h2>
+  <h2>Login</h2>
 
-  <form action="<%=request.getContextPath()%>/register-account" method="post">
+  <form action="<%=request.getContextPath()%>/login" method="post">
 
     <%--<% if(errorMessage != null) { %>--%>
     <%--<div class="form-section-header" style="color:red">Error</div>--%>
@@ -38,8 +38,7 @@
 
     <div class="form-section">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" id="name">
+        <label>No account? <a href="<%=request.getContextPath()%>/register.jsp"><b>Register</b></a></label>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
@@ -54,8 +53,10 @@
 
 
     <div class="submit-section">
-      <input type="submit" class="btn btn-info" value="Register" />
+      <input type="submit" class="btn btn-info" value="Login" />
     </div>
+
+
 
   </form>
 

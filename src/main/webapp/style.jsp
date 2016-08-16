@@ -177,5 +177,20 @@
         display: inline;
     }
 
+    .trail_thumbnail {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 0px;
+        border: 0;
+        background-position: center center;
+        background-size: cover;
+        margin-right:1px;
+    }
+
+    .frontpageText
+    {
+        padding:15px;
+    }
 
 </style>

@@ -1,30 +1,26 @@
-package edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers;
+package edu.jhu.ep.su16.final_project.mmoore91.servlets.restEndpoints;
 
+import com.google.gson.Gson;
 import edu.jhu.ep.su16.final_project.mmoore91.beans.SessionBean;
 import edu.jhu.ep.su16.final_project.mmoore91.utilities.SQLAdapter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Connection;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by moorema1 on 8/6/16.
  */
-public class MyTrails extends HttpServlet {
-    private Connection conn;
+public class AllTrails extends HttpServlet {
 
     private SQLAdapter db;
-
-    @Override
-    public void init() throws ServletException {
-        db = new SQLAdapter();
-
-    }
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -39,8 +35,16 @@ public class MyTrails extends HttpServlet {
             s = (SessionBean) session.getAttribute("sessionBean");
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/trails.jsp");
-        dispatcher.forward(req, resp);
+        Gson gson = new Gson();
+        db = new SQLAdapter();
+        ArrayList<HashMap<String, String>> results = db.sqlQuery("select name as traiL_name, id as trail_id from trails where owner_uid != ?", Arrays.asList(s.getAuthenticatedUserUID()));
+
+        gson.toJson(results);
+
+        resp.setContentType("application/json");
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(results));
+        out.flush();
 
     }
 }

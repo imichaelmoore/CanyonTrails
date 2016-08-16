@@ -26,6 +26,26 @@
     .timeline_timestamp {
         display: inline-block;
     }
+
+    #map {
+        width:100%;
+        vertical-align: middle;
+        horiz-align: center;
+    }
+
+    .largeImage {
+
+        zoom: 2;  //increase if you have very small images
+
+    display: block;
+        margin: auto;
+        height: auto;
+        max-height: 100%;
+
+        width: auto;
+        max-width: 100%;
+    }
+    }
 </style>
 
 <script type="text/javascript"
@@ -53,10 +73,30 @@
         });
     }
 
+    function displayImage(id)
+    {
+        $('#map').html("<img src='<%=request.getContextPath()%>/api/image/" + id + "' class='largeImage' />");
+        $('#map').css("background-color", "#000000");
+        <%--$('#map').css("background", "url('<%=request.getContextPath()%>/api/image/" + id + "') no-repeat");--%>
+        <%--$('#map').css("background-size", "300px 70vh");--%>
+
+    }
+
 
     $(document).ready(function () {
 
         $('#trail_id_hidden_element').val(trail_id);
+
+        $.ajax({
+            url: '<%=request.getContextPath()%>/api/images_for_trail/' + trail_id + '.json',
+            method: 'get',
+            success: function (d) {
+                $.each(d, function (k, v) {
+                    $('#photoscroll').append("<span onClick='displayImage(\"" + v.id + "\")'>" +
+                            "<img src='<%=request.getContextPath()%>/api/image/" + v.id + "' class='trail_thumbnail'></span>");
+                });
+            }
+        });
 
 
         $.ajax({
@@ -64,7 +104,6 @@
             method: 'get',
             success: function (d) {
                 $.each(d, function (k, v) {
-                    console.log(v);
                     $('#TrailName').html(v.trail_name);
                     $('#TrailDescription').html(v.description);
                     $('#TrailBylineUser').html("<a href='mailto:" + v.user_email + "'>" + v.user_name + "</a>");
@@ -92,7 +131,7 @@
             <h3></h3>
             <%--<% for(Strung u : )--%>
             <div id="timeline"></div>
-            <div id="map" style="height:80vh;"></div>
+            <div id="map" style="height:70vh;border:solid 1px #666;"></div>
             <div id="info">&nbsp;</div>
 
         </div>
@@ -106,7 +145,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-9"></div>
+        <div class="col-md-9">
+            <div id="photoscroll" style="padding:5px;margin-bottom:10px;"></div>
+        </div>
         <div class="col-md-3">
             <form action="<%=request.getContextPath()%>/trail/add-image" method="post" enctype="multipart/form-data">
                 <div class="form-section">

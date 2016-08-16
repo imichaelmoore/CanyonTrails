@@ -15,10 +15,6 @@
     </resource-ref>
 
     <servlet>
-        <servlet-name>TestServlet</servlet-name>
-        <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.TestServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>RegisterAccount</servlet-name>
         <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.account_management.RegisterAccount
         </servlet-class>
@@ -56,6 +52,10 @@
         <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.restEndpoints.MyTrails</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AllTrails</servlet-name>
+        <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.restEndpoints.AllTrails</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Trail</servlet-name>
         <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.page_controllers.Trail</servlet-class>
     </servlet>
@@ -75,12 +75,11 @@
         <servlet-name>RecentImages</servlet-name>
         <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.restEndpoints.RecentImages</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImagesForTrail</servlet-name>
+        <servlet-class>edu.jhu.ep.su16.final_project.mmoore91.servlets.restEndpoints.ImagesForTrail</servlet-class>
+    </servlet>
 
-
-    <servlet-mapping>
-        <servlet-name>TestServlet</servlet-name>
-        <url-pattern>/test</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/register-account</url-pattern>
@@ -118,6 +117,10 @@
         <url-pattern>/api/mytrails.json</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AllTrails</servlet-name>
+        <url-pattern>/api/all_trails.json</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Trail</servlet-name>
         <url-pattern>/trail/*</url-pattern>
     </servlet-mapping>
@@ -134,16 +137,20 @@
         <url-pattern>/api/trails/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddImage</servlet-name><!-- for convenience -->
+        <servlet-name>AddImage</servlet-name>
         <url-pattern>/trail/add-image</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>FetchImage</servlet-name><!-- for convenience -->
+        <servlet-name>FetchImage</servlet-name>
         <url-pattern>/api/image/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RecentImages</servlet-name><!-- for convenience -->
+        <servlet-name>RecentImages</servlet-name>
         <url-pattern>/api/recent_images.json</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImagesForTrail</servlet-name>
+        <url-pattern>/api/images_for_trail/*</url-pattern>
     </servlet-mapping>
 
 

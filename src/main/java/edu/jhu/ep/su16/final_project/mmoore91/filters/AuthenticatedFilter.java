@@ -42,8 +42,9 @@ public class AuthenticatedFilter implements Filter {
             } else {
                 s = (SessionBean) session.getAttribute("sessionBean");
             }
+            s.setErrorMessage("You must login to see this page.");
 
-            if(s.isAuthenticated() == false) res.sendRedirect(req.getContextPath());
+            if(s.isAuthenticated() == false) res.sendRedirect(req.getContextPath() + "/login_required.jsp");
 
             chain.doFilter(req, res);
 
