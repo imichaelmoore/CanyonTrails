@@ -35,7 +35,7 @@
         <dependency><!-- Bcrypt for secure password storage -->
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
-            <version>0.3m</version>
+            <version>0.4</version>
         </dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
